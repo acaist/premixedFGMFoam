@@ -26,13 +26,18 @@ public:
 
     double lookupYc()
     {
-
+		return weight_H * Yc_[position_H] + weight_L * Yc_[position_L];
     }
 
     double lookupY()
-    {
-
+    { 
+		return weight_H * Y[i][position_H] + weight_L * Y[i][position_H]
     }
+
+	double vectorSize()
+	{
+		return sizeYc;
+	}
 
 private:
     void read(); //read informations in lookup table;
@@ -41,12 +46,12 @@ private:
     size_t position_H; //the position of larger Yc in the table Zi;
     double weight_H;   //weight coeff.
     double weight_L;   //weight coeff. 
-    double Yc_h;   //the value of larger Yc in the table Zi;
-    double Yc_l;   //the value of smaller Yc ind the table Zi;
+    double Yc_h;       //the value of larger Yc in the table Zi;
+    double Yc_l;       //the value of smaller Yc ind the table Zi;
 
     std::vector<double> T_;
     std::vector<double> OmegaYc_;
-    std::vector<double> Y_;
+    std::vector<std::vector<double>> Y_;
     std::vector<double> Yc_Index;//from table Zi;
     std::vector<double> Z_Index;//vector contains Zi
 

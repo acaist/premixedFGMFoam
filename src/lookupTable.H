@@ -17,7 +17,6 @@
     {
         //Zeta = Foam::sqrt(varZCells[celli]/Foam::max(ZCells[celli]*(1 - ZCells[celli]), SMALL));
         //flameletTable.find(ZCells[celli], Zeta, YcCells[celli]); //flameletTable is an object of class flameletLib
-        
         flameletTable.findZScope(ZCells[celli]);//flameletTable is an object of class tableSolver 
         heCells[celli] = 0.0;
         TCells[celli] = flameletTable.lookupT();

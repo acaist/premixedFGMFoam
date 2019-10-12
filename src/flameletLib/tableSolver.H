@@ -13,30 +13,32 @@ public:
 
     double lookupT() const
     {
-        return table_[Z_position_h]->lookupT() * weightH_ +
-                table_[Z_position_l]->lookupT() * weightL_;
+        return table_[position_H]->lookupT() * weightH_ +
+                table_[position_L]->lookupT() * weightL_;
     }
     double lookupOmegaYc() const
     {
-        return table_[Z_position_h]->lookupYc() * weightH_ +
-                table_[Z_position_l]->lookupYc() * weightL_;
+        return table_[position_H]->lookupYc() * weightH_ +
+                table_[position_L]->lookupYc() * weightL_;
     }
     double lookupY(size_t i) const
     {
-        return table_[Z_position_h]->lookupY(i) * weightH_ +
-                table_[Z_position_l]->lookupY(i) * weightL_;
+        return table_[position_H]->lookupY(i) * weightH_ +
+                table_[position_L]->lookupY(i) * weightL_;
     }
 
 private:
-    size_t Z_position_l;
-    size_t Z_position_h;
-    double Z_high;
-    double Z_low;
+    size_t position_L;
+    size_t position_H;
+    double Z_h; //lower Z;
+    double Z_l; //upper Z;
     double Zi_; //Z value derived from table i;
-    double weightH_;
-    double weightL_;
+    double weight_H;
+    double weight_L;
 
-    std::vector<table> table_ 
+	size_t sizeZ = table_[0].vectorSize();//column size of each table;
+
+    std::vector<table> table_ //table¡ª¡ª>tableSolver//Each element of vector table_ is table type;
 };
 
 #endif
