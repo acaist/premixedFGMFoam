@@ -19,22 +19,22 @@ public:
 
     void findYcScope( double Yc_ ); //find the lower and upper values of Yc at each table Zi , input Yc_; 
 
-    double lookupT()
+    double lookupT() const
     {
         return weight_H * T_[position_H] + weight_L * T_[position_L];   
     }
 
-    double lookupYc()
+    double lookupYc() const
     {
 		return weight_H * Yc_[position_H] + weight_L * Yc_[position_L];
     }
 
-    double lookupY()
+    double lookupY() const
     { 
 		return weight_H * Y[i][position_H] + weight_L * Y[i][position_H]
     }
 
-	double vectorSize()
+	double vectorSize() const
 	{
 		return sizeYc;
 	}

@@ -8,6 +8,7 @@ class table
 public:
     //Constructor
     tableSolver();
+
     //member function
     void findZScope(double Z_);
 

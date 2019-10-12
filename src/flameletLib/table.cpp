@@ -1,7 +1,16 @@
 /********************************************************************************************/
 #include "table.H"
 
-void tableZ::findYcScope( double Yc_ )
+table::table
+(
+	std::ifstream& tableFile
+):
+	tableFile_(tableFile)
+{
+	read();
+}
+
+void table::findYcScope( double Yc_ )
 {
     if( (Yc_ > Yc_Index[0]) && (Yc_ < Yc_Index.back()) )
     {
