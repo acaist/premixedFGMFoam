@@ -1,6 +1,22 @@
 #include "tableSolver.H"
 
-void table::findZScope(double Z_)
+tableSolver::tableSolver(double Zi_)
+{
+	collectTables()
+}
+
+void tableSolver::collectTables(double Zi_)
+{
+	size_t n = 0;
+	while (true)
+	{
+		std::ifstream flameletTableFile("tableFile/table_" + std::to_string(n) + ".csv");
+		if (!flameletTableFile) break;
+
+	}
+}
+
+void tableSolver::find(double Z_, double Yc_)
 {
     if( Z_ > Z_Index[0] && Z_ < Z_Index.back() )
     {
@@ -37,5 +53,4 @@ void table::findZScope(double Z_)
 		weight_H = 0.5;
 		weight_L = 0.5;
     }
-
 }

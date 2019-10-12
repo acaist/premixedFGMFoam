@@ -15,8 +15,6 @@ public:
     table(std::ifstream& tableFile);
 
     //Member function
-    void collectTables();
-
     void findYcScope( double Yc_ ); //find the lower and upper values of Yc at each table Zi , input Yc_; 
 
     double lookupT() const
@@ -40,7 +38,11 @@ public:
 	}
 
 private:
-    void read(); //read informations in lookup table;
+	//Private member function:
+	void read(); //read informations in lookup table;
+
+	//Class members:
+	std::ifstream& tableFile_;
 
     size_t position_L; //the position of smaller Yc in the table Zi;
     size_t position_H; //the position of larger Yc in the table Zi;

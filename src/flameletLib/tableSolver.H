@@ -3,14 +3,16 @@
 
 #include "table.H"
 
-class table
+class tableSolver
 {
 public:
     //Constructor
-    tableSolver();
+    tableSolver(double Zi_);
 
     //member function
-    void findZScope(double Z_);
+	void collectTables(double Zi_);
+
+    void find(double Z_, double Yc_);//Z_ = ZCells[Celli] in lookupTable.H;
 
     double lookupT() const
     {
