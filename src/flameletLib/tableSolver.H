@@ -39,9 +39,8 @@ private:
     double weight_H;
     double weight_L;
 
+	std::vector<table> table_ //table！！>tableSolver//Each element of vector table_ is table type;
 	size_t sizeZ = table_[0].vectorSize();//column size of each table;
-
-    std::vector<table> table_ //table！！>tableSolver//Each element of vector table_ is table type;
 };
 
 #endif
