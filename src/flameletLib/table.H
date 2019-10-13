@@ -27,7 +27,7 @@ public:
 		return weight_H * Yc_[position_H] + weight_L * Yc_[position_L];
     }
 
-    double lookupY() const
+    double lookupY(size_t i) const
     { 
 		return weight_H * Y[i][position_H] + weight_L * Y[i][position_H]
     }

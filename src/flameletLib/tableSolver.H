@@ -16,18 +16,15 @@ public:
 
     double lookupT() const
     {
-        return table_[position_H]->lookupT() * weightH_ +
-                table_[position_L]->lookupT() * weightL_;
+		return table_[i + 1].lookupT() * weight_H + table_[i].lookupT() * weight_L;
     }
     double lookupOmegaYc() const
     {
-        return table_[position_H]->lookupYc() * weightH_ +
-                table_[position_L]->lookupYc() * weightL_;
+        return table_[i + 1].lookupOmegaYc() * weight_H + table_[i].lookupOmegaYc() * weight_L;
     }
     double lookupY(size_t i) const
     {
-        return table_[position_H]->lookupY(i) * weightH_ +
-                table_[position_L]->lookupY(i) * weightL_;
+        return table_[i + 1].lookupY(i) * weight_H + table_[i].lookupY(i) * weight_L;
     }
 
 private:
