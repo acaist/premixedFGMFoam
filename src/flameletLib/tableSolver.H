@@ -28,6 +28,7 @@ public:
     }
 
 private:
+	size_t tableNum;//number of tables;
     size_t position_L;
     size_t position_H;
     double Z_h; //lower Z;
@@ -36,8 +37,8 @@ private:
     double weight_H;
     double weight_L;
 
+	std::vector<double> Z_Index;//与csv文件一一对应的容器；
 	std::vector<table> table_ //table——>tableSolver//Each element of vector table_ is table type;
-	size_t sizeZ = table_[0].vectorSize();//column size of each table;
 };
 
 #endif

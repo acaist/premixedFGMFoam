@@ -7,16 +7,17 @@ tableSolver::tableSolver(double Zi_)
 
 void tableSolver::collectTables(double Zi_)
 {
-	size_t n = 0;
+	/*每次读入一个csv文件都记录一次*/
+	tableNum = 0;
 	while (true)
 	{
 		std::ifstream flameletTableFile("tableFile/table_" + std::to_string(n) + ".csv");
 		if (!flameletTableFile) break;
-
+		tableNum++;
 	}
 }
 
-void tableSolver::find(double Z_, double Yc_)//Z_=ZCells[celli], Yc_=YcCells[celli];
+void tableSolver::find(double Z_, double Yc_)  //Z_=ZCells[celli], Yc_=YcCells[celli];
 {
 	/*****     find a scope between Z_high and Z_low which includes Z_     *****/
     if( Z_ > Z_Index[0] && Z_ < Z_Index.back() )
@@ -43,8 +44,8 @@ void tableSolver::find(double Z_, double Yc_)//Z_=ZCells[celli], Yc_=YcCells[cel
     }
     else
     {
-		position_L = sizeZ - 1;
-		position_H = sizeZ - 1;
+		position_L = tableNum() - 1;
+		position_H = tableNum() - 1;
 
         Z_h = Z_Index.back();
         Z_l = Z_Index.back();

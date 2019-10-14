@@ -32,9 +32,9 @@ public:
 		return weight_H * Y[i][position_H] + weight_L * Y[i][position_H]
     }
 
-	double vectorSize() const
+	size_t ColumnNum() const
 	{
-		return sizeYc;
+		return ColumnNum;
 	}
 
 private:
@@ -59,6 +59,7 @@ private:
     std::vector<double> Z_Index;//vector contains Zi
 
     size_t nColumn;
+	size_t columnNum;
     std::string firstLine_;
 };
 
