@@ -16,8 +16,9 @@ void tableSolver::collectTables(double Zi_)
 	}
 }
 
-void tableSolver::find(double Z_, double Yc_)
+void tableSolver::find(double Z_, double Yc_)//Z_=ZCells[celli], Yc_=YcCells[celli];
 {
+	/*****     find a scope between Z_high and Z_low which includes Z_     *****/
     if( Z_ > Z_Index[0] && Z_ < Z_Index.back() )
     {
         position_L = lower_bound(Z_Index.begin(),Z_Index.end(),Z_) - Z_Index.begin() - 1;
@@ -29,7 +30,6 @@ void tableSolver::find(double Z_, double Yc_)
 		weight_H = (Z_ - Z_l) / (Z_h - Z_l);
 		weight_L = (Z_h - Z_) / (Z_h - Z_l);
     }
-
     else if(Z_ <= Z_Index[0])
     {
 		position_L = 0;
@@ -41,7 +41,6 @@ void tableSolver::find(double Z_, double Yc_)
 		weight_H = 0.5;
 		weight_L = 0.5;
     }
-
     else
     {
 		position_L = sizeZ - 1;
@@ -53,4 +52,8 @@ void tableSolver::find(double Z_, double Yc_)
 		weight_H = 0.5;
 		weight_L = 0.5;
     }
+
+	/*****     initiate Yc_ = YcCells[celli],and find position_H & position_L in Yc dirction     *****/
+	table_[position_H].findYcScope(Yc_);
+	table_[position_L].findYcScope(Yc_);
 }

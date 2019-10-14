@@ -50,6 +50,7 @@ private:
     double weight_L;   //weight coeff. 
     double Yc_h;       //the value of larger Yc in the table Zi;
     double Yc_l;       //the value of smaller Yc ind the table Zi;
+	double Yc_;        //Yc convected from lookupTable.H, Yc_=YcCells[celli];
 
     std::vector<double> T_;
     std::vector<double> OmegaYc_;
@@ -59,7 +60,6 @@ private:
 
     size_t nColumn;
     std::string firstLine_;
-    std::ifstream& tableFile_;
 };
 
 #endif
