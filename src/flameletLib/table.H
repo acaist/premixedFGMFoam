@@ -56,7 +56,7 @@ private:
     std::vector<double> OmegaYc_;
     std::vector<std::vector<double>> Y_;
     std::vector<double> Yc_Index;//from table Zi;
-    std::vector<double> Z_Index;//vector contains Zi
+    double tableZ;//vector contains Zi
 
     size_t nColumn;
 	size_t columnNum;

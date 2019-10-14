@@ -16,19 +16,19 @@ void table::findYcScope( double Yc_ )
         position_L = lower_bound(Yc_Index.begin(),Yc_Index.end(),Yc_) - Yc_Index.begin() - 1;
         position_H = lower_bound(Yc_Index.begin(),Yc_Index.end(),Yc_) - Yc_Index.begin();
 
-        Yc_h = Yc_Index[position_H];
-        Yc_l = Yc_Index[position_L];  
+		Yc_h = Yc_Index[position_H];
+		Yc_l = Yc_Index[position_L];  
 
-        weight_H = (Yc_ - Yc_l) / (Yc_h - Yc_l); 
-        weight_L = (Yc_h - Yc_) / (Yc_h - Yc_l);
+		weight_H = (Yc_ - Yc_l) / (Yc_h - Yc_l); 
+		weight_L = (Yc_h - Yc_) / (Yc_h - Yc_l);
     }
     else if(Yc_ <= Yc_Index[0])
     {
 		position_L = 0;
 		position_H = 0;
 
-        Yc_h = Yc_Index[0];
-        Yc_l = Yc_Index[0];
+		Yc_h = Yc_Index[0];
+		Yc_l = Yc_Index[0];
 
 		weight_H = 0.5;
 		weight_L = 0.5;
@@ -38,8 +38,8 @@ void table::findYcScope( double Yc_ )
 		position_H = sizeYc - 1;
 		position_L = sizeYc - 1;
 
-        Yc_h = Yc_Index.back();
-        Yc_l = Yc_Index.back();
+		Yc_h = Yc_Index.back();
+		Yc_l = Yc_Index.back();
 
 		weight_H = 0.5;
 		weight_L = 0.5;
@@ -65,7 +65,7 @@ void table::read()
             else if(n == 55)
                 Yc_Index.push_back(std::stod(str));
             else if(n == 56)
-                Z_Index.push_back(std::stod(str));
+                /* Îª tableZ ¸³Öµ */
             else
                 Y_[n-2].push_back(std::stod(str));
             n++;   
