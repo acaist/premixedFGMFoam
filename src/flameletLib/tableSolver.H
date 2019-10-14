@@ -12,7 +12,7 @@ public:
     //member function
 	void collectTables(double Zi_);
 
-    void find(double Z_, double Yc_);//Z_ = ZCells[Celli] in lookupTable.H;
+    void find(double Z_, double Yc_);
 
     double lookupT() const
     {
