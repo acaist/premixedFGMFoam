@@ -1,19 +1,25 @@
 #include "tableSolver.H"
 
-tableSolver::tableSolver(double Zi_)
+tableSolver::tableSolver()
 {
-	collectTables()
+	
+	collectTables();
 }
 
-void tableSolver::collectTables(double Zi_)
+void tableSolver::collectTables()
 {
 	/*每次读入一个csv文件都记录一次*/
 	tableNum = 0;
 	while (true)
 	{
-		std::ifstream flameletTableFile("tableFile/table_" + std::to_string(n) + ".csv");
+		std::ifstream flameletTableFile("tableFile/table_" + std::to_string(tableNum) + ".csv");
 		if (!flameletTableFile) break;
 		tableNum++;
+	}
+	/*将每一个table所代表的Z存到Z_Index中*/
+	for (size_t n = 0; n < (tableNum - 1); n++)
+	{
+		Z_Index[n] = table_[n].getZ();
 	}
 }
 
@@ -22,8 +28,8 @@ void tableSolver::find(double Z_, double Yc_)  //Z_=ZCells[celli], Yc_=YcCells[c
 	/*****     find a scope between Z_high and Z_low which includes Z_     *****/
     if( Z_ > Z_Index[0] && Z_ < Z_Index.back() )
     {
-        position_L = lower_bound(Z_Index.begin(),Z_Index.end(),Z_) - Z_Index.begin() - 1;
-        position_H = lower_bound(Z_Index.begin(),Z_Index.end(),Z_) - Z_Index.begin();
+		position_L = lower_bound(Z_Index.begin(),Z_Index.end(),Z_) - Z_Index.begin() - 1;
+		position_H = lower_bound(Z_Index.begin(),Z_Index.end(),Z_) - Z_Index.begin();
 
 		Z_h = Z_Index[position_H];
         Z_l = Z_Index[position_L];

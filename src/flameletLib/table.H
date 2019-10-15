@@ -37,6 +37,11 @@ public:
 		return ColumnNum;
 	}
 
+	double getZ()
+	{
+		return Zi_;
+	}
+
 private:
 	//Private member function:
 	void read(); //read informations in lookup table;
@@ -51,6 +56,7 @@ private:
     double Yc_h;       //the value of larger Yc in the table Zi;
     double Yc_l;       //the value of smaller Yc ind the table Zi;
 	double Yc_;        //Yc convected from lookupTable.H, Yc_=YcCells[celli];
+	double Zi_;         //read Z from each table and save in the Z_;
 
     std::vector<double> T_;
     std::vector<double> OmegaYc_;

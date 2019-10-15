@@ -64,8 +64,6 @@ void table::read()
                 OmegaYc_.push_back(std::stod(str));
             else if(n == 55)
                 Yc_Index.push_back(std::stod(str));
-            else if(n == 56)
-                /* Îª tableZ ¸³Öµ */
             else
                 Y_[n-2].push_back(std::stod(str));
             n++;   

@@ -7,24 +7,24 @@ class tableSolver
 {
 public:
     //Constructor
-    tableSolver(double Zi_);
+	tableSolver();
 
     //member function
-	void collectTables(double Zi_);
+	void collectTables();
 
-    void find(double Z_, double Yc_);
+	void find(double Z_, double Yc_);
 
-    double lookupT() const
+	double lookupT() const
     {
 		return table_[position_H].lookupT() * weight_H + table_[position_L].lookupT() * weight_L;
     }
-    double lookupOmegaYc() const
+	double lookupOmegaYc() const
     {
-        return table_[position_H].lookupOmegaYc() * weight_H + table_[position_L].lookupOmegaYc() * weight_L;
+		return table_[position_H].lookupOmegaYc() * weight_H + table_[position_L].lookupOmegaYc() * weight_L;
     }
-    double lookupY(size_t i) const
+	double lookupY(size_t i) const
     {
-        return table_[position_H].lookupY(i) * weight_H + table_[position_L].lookupY(i) * weight_L;
+		return table_[position_H].lookupY(i) * weight_H + table_[position_L].lookupY(i) * weight_L;
     }
 
 private:
@@ -33,7 +33,6 @@ private:
     size_t position_H;
     double Z_h; //lower Z;
     double Z_l; //upper Z;
-    double Zi_; //Z value derived from table i;
     double weight_H;
     double weight_L;
 
